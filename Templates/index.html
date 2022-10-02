@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<div class="container">
+    {% if class %}
+        <h3>Result : {{class}}</h3>
+    {% endif %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <input type="text" class="form-control" name="website" required placeholder="Enter Domain Name"></input>
+        <br>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-success" type="submit" name="type" value="url">Check</button>
+        </div>
+    </form>
+
+    {% if features %}
+    <b>
+        Warning: Please Try to give features manually to our website. <br>
+        Our system can automatically extract features from website, but it gives only 70% accuracy.<br>
+        Providing features manually to our website will provides you 96% accuracy.<br>
+    </b>
+    <br>
+    {% elif valued_features %}
+        <h3>Extraceted Features</h3>
+    {% endif %}
+
+    <form method="post" action="">
+        <div class="form-group">
+            {% csrf_token %}
+            {% if features %}
+                <div class="row">
+                {% for i in features %}
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-4 col-form-label">{{i}}</label>
+                            <input class="form-control col-md-8"  type="number" name={{i}} placeholder={{i}} required></input>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-success" type="submit" name="type" value="features">Check</button>
+                </div>
+            {% endif %}
+        </div>
+
+        {% if valued_features %}
+            <div class="row">
+            {% for i,j in valued_features.items %}
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-md-4 col-form-label">{{i}}</label>
+                        <input class="form-control col-md-8"  type="number" name={{i}} placeholder={{i}} value={{j}} required></input>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            <br>
+
+
+
+            </div>
+            <br>
+        {% endif %}
+
+    </form>
+</div>
+
+{% endblock content %}
