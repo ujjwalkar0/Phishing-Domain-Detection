@@ -20,3 +20,11 @@ An attacker who is impersonating someone or a company in order to obtain sensiti
 </p>
 
 ## Solution:
+
+A labeled public dataset from the Mendaly Data comprised of features of 88,647 website is used for prediction. Clasification is done with Random Forest Classification Algorithm gives 96% accuracy.
+
+## Dataset:
+
+A labeled public dataset from the Mendaly Data comprised of features of 88,647 website is used for prediction
+
+URL: https://data.mendeley.com/datasets/72ptz43s9v/1
