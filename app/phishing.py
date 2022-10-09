@@ -214,6 +214,6 @@ def is_phishing(POST):
 
     context["valued_features"] = result
 
-    context['class'] = "Phishing Website" if rfc.predict(df)==1 else "Not a Phishing Website"
+    context['class'] = "Phishing Website" if rfc.predict(df)==0 else "Not a Phishing Website"
     
     return context
